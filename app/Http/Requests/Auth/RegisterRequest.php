@@ -10,7 +10,7 @@ class RegisterRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        return TRUE;
+        return true;
     }
 
     public function rules(): array
@@ -28,7 +28,7 @@ class RegisterRequest extends FormRequest
         throw new HttpResponseException(response()->json([
             'success' => false,
             'message' => 'Validation errors',
-            'data' => $validator->errors()
+            'errors' => $validator->errors()
         ]));
     }
 }
